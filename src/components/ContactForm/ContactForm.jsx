@@ -2,8 +2,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
 import styles from "./ContactForm.module.css";
+import { useId } from "react";
 
 export default function ContactForm({ addContact }) {
+  const id = useId();
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -33,9 +35,9 @@ export default function ContactForm({ addContact }) {
   return (
     <form onSubmit={formik.handleSubmit} className={styles.form}>
       <div className={styles.fieldContainer}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor={`${id}-name`}>Name</label>
         <input
-          id="name"
+          id={`${id}-name`}
           name="name"
           type="text"
           onChange={formik.handleChange}
@@ -49,9 +51,9 @@ export default function ContactForm({ addContact }) {
       </div>
 
       <div className={styles.fieldContainer}>
-        <label htmlFor="number">Number</label>
+        <label htmlFor={`${id}-number`}>Number</label>
         <input
-          id="number"
+          id={`${id}-number`}
           name="number"
           type="text"
           onChange={formik.handleChange}

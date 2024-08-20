@@ -1,7 +1,8 @@
 import styles from "./SearchBox.module.css";
-const SearchBox = ({ filter, setFilter }) => {
-  const handleChange = (e) => {
-    setFilter(e.target.value);
+
+export default function SearchBox({ filter, setFilter }) {
+  const handleChange = (event) => {
+    setFilter(event.target.value);
   };
 
   return (
@@ -16,6 +17,4 @@ const SearchBox = ({ filter, setFilter }) => {
       />
     </div>
   );
-};
-
-export default SearchBox;
+}

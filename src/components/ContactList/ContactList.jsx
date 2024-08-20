@@ -1,7 +1,7 @@
 import Contact from "../Contact/Contact";
 import styles from "./ContactList.module.css";
 
-const ContactList = ({ contacts, deleteContact }) => {
+export default function ContactList({ contacts, deleteContact }) {
   return (
     <ul className={styles.list}>
       {contacts.map((contact) => (
@@ -13,6 +13,4 @@ const ContactList = ({ contacts, deleteContact }) => {
       ))}
     </ul>
   );
-};
-
-export default ContactList;
+}

@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactList from "./components/ContactList/ContactList";
+import styles from "./App.module.css";
 
-const App = () => {
+export default function App() {
   const [contacts, setContacts] = useState([
     { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
     { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
@@ -38,13 +39,11 @@ const App = () => {
   );
 
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <div className={styles.appContainer}>
+      <h1 className={styles.title}>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox filter={filter} setFilter={setFilter} />
       <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </div>
   );
-};
-
-export default App;
+}

@@ -1,9 +1,10 @@
-import styles from "./Contact.module.css";
-
-export default function Contact({ name, number }) {
+const Contact = ({ contact, deleteContact }) => {
   return (
-    <li className={styles.contact}>
-      {name}: {number}
+    <li>
+      {contact.name}: {contact.number}
+      <button onClick={() => deleteContact(contact.id)}>Delete</button>
     </li>
   );
-}
+};
+
+export default Contact;

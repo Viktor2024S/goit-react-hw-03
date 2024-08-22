@@ -18,19 +18,21 @@ export default function ContactForm({ addContact }) {
       .required("Required"),
   });
 
+  const handleSubmit = (values, { resetForm }) => {
+    const newContact = {
+      id: nanoid(),
+      name: values.name,
+      number: values.number,
+    };
+    addContact(newContact);
+    resetForm();
+  };
+
   return (
     <Formik
       initialValues={{ name: "", number: "" }}
       validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        const newContact = {
-          id: nanoid(),
-          name: values.name,
-          number: values.number,
-        };
-        addContact(newContact);
-        resetForm();
-      }}
+      onSubmit={handleSubmit}
     >
       {() => (
         <Form className={styles.form}>

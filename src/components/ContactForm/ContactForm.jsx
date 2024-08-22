@@ -6,6 +6,10 @@ import { useId } from "react";
 
 export default function ContactForm({ addContact }) {
   const id = useId();
+  const initialValues = {
+    name: "",
+    number: "",
+  };
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -30,7 +34,7 @@ export default function ContactForm({ addContact }) {
 
   return (
     <Formik
-      initialValues={{ name: "", number: "" }}
+      initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >

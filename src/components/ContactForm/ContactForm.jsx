@@ -6,6 +6,7 @@ import { useId } from "react";
 
 export default function ContactForm({ addContact }) {
   const id = useId();
+
   const initialValues = {
     name: "",
     number: "",
